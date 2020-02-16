@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.library.entities.User" %>
@@ -36,10 +37,10 @@
      <td><%= usr.getId()%></td>
      <td><%= usr.getFullName()%></td>
      <td><%=usr.getUsername() %></td>
-     <td><%=usr.getRole() %></td>
+     <td><%=usr.getRole() ==1 ? "Teacher " : "Student" %></td>
      <td>
-     <a href="">Edit || </a>
-     <a href="">Delete</a>
+     <a href="editUser?id=<%= usr.getId()%>">Edit || </a>
+     <a href="deleteUser?id=<%= usr.getId()%>">Delete</a>
      </</td>
   </tr>
      <%}

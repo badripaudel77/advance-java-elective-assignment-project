@@ -84,6 +84,19 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public boolean deleteUser(User user) {
+		Statement statement = doConnect.doConnection();
+
+		String query = " DELETE from `users` where `id` = '"+user.getId()+"';";
+		
+		try {
+			
+		statement.execute(query);
+		return true;
+		
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}		
 		return false;
 	}
 

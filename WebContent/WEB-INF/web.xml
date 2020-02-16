@@ -44,5 +44,30 @@
 		<servlet-name>addUserServlet</servlet-name>
 		<url-pattern>/addUser</url-pattern>
 	</servlet-mapping>
+	
+	<!-- mapping for the deleting the list -->
+
+	<servlet>
+		<servlet-name>deleteUserList</servlet-name>
+		<servlet-class>com.library.controller.DeleteUserServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>deleteUserList</servlet-name>
+		<url-pattern>/deleteUser</url-pattern>
+	</servlet-mapping>
+	
+<!-- mapping for the editing the user -->
+
+	<servlet>
+		<servlet-name>editTheUser</servlet-name>
+		<servlet-class>com.library.controller.DeleteUserServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>editTheUser</servlet-name>
+		<url-pattern>/editUser</url-pattern>
+	</servlet-mapping>
+
 
 </web-app>
