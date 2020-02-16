@@ -9,6 +9,7 @@ public class DatabaseConnectionImpl implements DatabaseConnection {
 
 	@Override
 	public Statement doConnection() {
+		
 		Connection connection = null;
 		Statement statement = null;
 

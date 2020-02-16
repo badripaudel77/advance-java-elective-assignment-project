@@ -10,6 +10,9 @@
 
 	<h1 style="text-align: center; color: green">Library Management
 		System</h1>
+  
+  <h3 style="color:red; height:60px;width:400px;">${errorMsg}</h3> 
+		
 
 	<form name="userLogin" method="post" action="userLogin">
 

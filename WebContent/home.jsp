@@ -8,7 +8,9 @@
 </head>
 <body>
 
-  <h2> Home page , =>  You are Logged In </h2>
-
+  <h2> Home page  </h2>
+  <p>You are Logged In as <span style="color: green;"> 
+  <%=session.getAttribute("sessionValue")%></span></p>
+  <a href="users" >List Users</a>
 </body>
 </html>

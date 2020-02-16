@@ -1,19 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
-  <display-name>LibraryManagementSystem</display-name>
-  <welcome-file-list>
-        <welcome-file>index.html</welcome-file>
-        <welcome-file>index.jsp</welcome-file>
-  </welcome-file-list>
-  
-  <servlet>
-    <servlet-name>loginservlet</servlet-name>
-    <servlet-class>com.library.controller.UserLoginServlet</servlet-class>
-  </servlet>
-  
-  <servlet-mapping>
-    <servlet-name>loginservlet</servlet-name>
-    <url-pattern>/userLogin</url-pattern>
-  </servlet-mapping>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+	version="4.0">
+	
+	<display-name>LibraryManagementSystem</display-name>
+	<welcome-file-list>
+		<welcome-file>index.html</welcome-file>
+		<welcome-file>index.jsp</welcome-file>
+	</welcome-file-list>
+
+	<!--mapping for the login -->
+
+	<servlet>
+		<servlet-name>loginservlet</servlet-name>
+		<servlet-class>com.library.controller.UserLoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>loginservlet</servlet-name>
+		<url-pattern>/userLogin</url-pattern>
+	</servlet-mapping>
+
+	<!-- mapping for the users list -->
+
+	<servlet>
+		<servlet-name>usersListServlet</servlet-name>
+		<servlet-class>com.library.controller.UsersServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>usersListServlet</servlet-name>
+		<url-pattern>/users</url-pattern>
+	</servlet-mapping>
+	
+	<!-- mapping for the users list -->
+
+	<servlet>
+		<servlet-name>addUserServlet</servlet-name>
+		<servlet-class>com.library.controller.AddUserServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>addUserServlet</servlet-name>
+		<url-pattern>/addUser</url-pattern>
+	</servlet-mapping>
 
 </web-app>

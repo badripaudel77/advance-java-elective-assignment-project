@@ -9,6 +9,9 @@ public interface UserService {
 	// user login
 	public boolean isUserValid(User user);
 
+	//add the user
+	public boolean addUser(User user);
+	
 	// list the users
 	public List<User> getAllUsers();
 

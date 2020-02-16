@@ -9,6 +9,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.library.entities.User;
 import com.library.services.UserService;
@@ -23,9 +24,7 @@ public class UserLoginServlet extends HttpServlet {
 
 	@Override
 	public void init(ServletConfig config) throws ServletException{
-
 		context = config.getServletContext();
-
 	}
 
 	//the way of handling both doPost() and doGet() is similar.
@@ -40,6 +39,12 @@ public class UserLoginServlet extends HttpServlet {
 		System.out.println("username : " + username);
 		System.out.println("password : " + password);
 		
+
+		//creating session variable for the future use.
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("sessionValue",username);
+		
 		//creating user
 		User user  = new User();
 		
@@ -53,17 +58,17 @@ public class UserLoginServlet extends HttpServlet {
 		
 		if(isUserValid) {
 		  dispatch = context.getRequestDispatcher("/home.jsp");
+        
 		}
 		else {
 			dispatch = context.getRequestDispatcher("/index.jsp");
+		   	request.setAttribute("errorMsg", "Couldn't login || check your credentials");
 		}
 		dispatch.forward(request, response);
 	}
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
-    
 		doPost(request, response);
-
 	}
 }

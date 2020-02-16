@@ -6,7 +6,7 @@ public class User {
 	private String fullName;
 	private String username;
 	private String password;
-	private int roll;
+	private int role;
 
 	public int getId() {
 		return id;
@@ -40,11 +40,11 @@ public class User {
 		this.password = password;
 	}
 
-	public int getRoll() {
-		return roll;
+	public int getRole() {
+		return role;
 	}
 
-	public void setRoll(int roll) {
-		this.roll = roll;
+	public void setRole(int role) {
+		this.role = role;
 	}
 }
