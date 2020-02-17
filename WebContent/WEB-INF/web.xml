@@ -57,16 +57,29 @@
 		<url-pattern>/deleteUser</url-pattern>
 	</servlet-mapping>
 	
+	<!-- mapping for the getting data to edit the user -->
+
+	<servlet>
+		<servlet-name>getEditTheUser</servlet-name>
+		<servlet-class>com.library.controller.GetEditServlet</servlet-class>
+	</servlet>
+
+	<servlet-mapping>
+		<servlet-name>getEditTheUser</servlet-name>
+		<url-pattern>/users/getEdit</url-pattern>
+	</servlet-mapping>
+	
+	
 <!-- mapping for the editing the user -->
 
 	<servlet>
 		<servlet-name>editTheUser</servlet-name>
-		<servlet-class>com.library.controller.DeleteUserServlet</servlet-class>
+		<servlet-class>com.library.controller.EditUserServlet</servlet-class>
 	</servlet>
 
 	<servlet-mapping>
 		<servlet-name>editTheUser</servlet-name>
-		<url-pattern>/editUser</url-pattern>
+		<url-pattern>/users/updateUser</url-pattern>
 	</servlet-mapping>
 
 

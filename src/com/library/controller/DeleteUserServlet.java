@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -41,15 +42,23 @@ public class DeleteUserServlet extends HttpServlet {
 		UserService userService = new UserServiceImpl();
 
 		boolean isUserDeleted = userService.deleteUser(user);
-
-		if (isUserDeleted) {
-			System.out.println("dispatching to --- from DeleteUserServlet ? ");
-			dispatch = context.getRequestDispatcher("/home.jsp");
-		} 
 		
-		else {
-			dispatch = context.getRequestDispatcher("/home.jsp");
-		}
+		// To get list of users
+
+				List<User> usrList = userService.getAllUsers();
+
+				request.setAttribute("userList", usrList);
+
+				dispatch = context.getRequestDispatcher("/view/users.jsp");
+//
+//		if (isUserDeleted) {
+//			System.out.println("dispatching to --- from DeleteUserServlet ? ");
+//			dispatch = context.getRequestDispatcher("/home.jsp");
+//		} 
+//		
+//		else {
+//			dispatch = context.getRequestDispatcher("/home.jsp");
+//		}
 		dispatch.forward(request, response);
 	}
 

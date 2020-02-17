@@ -39,8 +39,8 @@
      <td><%=usr.getUsername() %></td>
      <td><%=usr.getRole() ==1 ? "Teacher " : "Student" %></td>
      <td>
-     <a href="editUser?id=<%= usr.getId()%>">Edit || </a>
-     <a href="deleteUser?id=<%= usr.getId()%>">Delete</a>
+     <a href="users/getEdit?id=<%= usr.getId()%>" onclick="return confirm('Are you really going to modify this record ? ');">Edit || </a>
+     <a href="deleteUser?id=<%= usr.getId()%>" onclick="return confirm('Are you sure to delete this record ?');">Delete</a>
      </</td>
   </tr>
      <%}

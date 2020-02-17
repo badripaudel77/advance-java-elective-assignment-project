@@ -15,7 +15,7 @@ import com.library.entities.User;
 import com.library.services.UserService;
 import com.library.servicesimpl.UserServiceImpl;
 
-public class EditUserServlet extends HttpServlet {
+public class GetEditServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
@@ -31,48 +31,27 @@ public class EditUserServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		int id = Integer.parseInt(request.getParameter("id"));
+		
 		User user = new User();
-
+        
+		user.setId(id);
+        
 		UserService userService = new UserServiceImpl();
+       
+		System.out.println("service instantiated=== from GetEditServlet.java");
+	   
+		User userByIdList = userService.getUserById(user);
+      
+		request.setAttribute("userByIdList", userByIdList);
+		
+		System.out.println("User updated \n dispatching to --- from EditUserServlet ? ");
 
-		System.out.println("from EditUserServlet files  ");
+		dispatch = context.getRequestDispatcher("/view/editUser.jsp");
 
-		System.out.println("servie instantiated");
-
-		int ID = Integer.parseInt(request.getParameter("id"));
-		String fullName = request.getParameter("fullName");
-		String username = request.getParameter("username");
-		String password = request.getParameter("password");
-		int role = Integer.parseInt(request.getParameter("role"));
-
-		user.setId(ID);
-		user.setFullName(fullName);
-		user.setUsername(username);
-		user.setPassword(password);
-		user.setRole(role);
-
-		boolean isUserUpdated = userService.updateUser(user);
-
-		if (isUserUpdated) {
-
-			List<User> userList = userService.getAllUsers();
-
-			request.setAttribute("userList", userList);
-
-			dispatch = context.getRequestDispatcher("/view/users.jsp");
-
-			System.out.println("User updated \n dispatching to --- from EditUserServlet ? ");
-
-		} 
-		else {
-			user = userService.getUserById(user);
-
-			request.setAttribute("user", user);
-
-			dispatch = context.getRequestDispatcher("/view/users.jsp");
-		}
 		dispatch.forward(request, response);
-	}
+
+}
 
 	@Override
 	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -15,8 +15,8 @@ public interface UserService {
 	// list the users
 	public List<User> getAllUsers();
 
-	// list the user by id
-	public List<User> getUserById(User user);
+	// list an individual user by id
+	public User getUserById(User user);
 
 	// update user
 	public boolean updateUser(User user);

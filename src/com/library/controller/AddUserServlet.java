@@ -1,6 +1,7 @@
 package com.library.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -54,12 +55,20 @@ public class AddUserServlet extends HttpServlet {
 		boolean isUserAdded = userService.addUser(user);
 
 		if (isUserAdded) {
+			
+	List<User> usrList = userService.getAllUsers();
+			
+			request.setAttribute("userList", usrList);
+			
+			dispatch = context.getRequestDispatcher("/view/users.jsp");
+			
 			System.out.println("dispatching to --- from AddUserServlet ? ");
-			dispatch = context.getRequestDispatcher("/home.jsp");
+			//dispatch = context.getRequestDispatcher("/home.jsp");
 		}
 		else {
 			dispatch = context.getRequestDispatcher("/home.jsp");
 		}
+		
 		dispatch.forward(request, response);
 	}
 
